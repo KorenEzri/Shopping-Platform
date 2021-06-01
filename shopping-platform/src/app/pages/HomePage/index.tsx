@@ -9,7 +9,7 @@ export function HomePage() {
       try {
         const { data } = await network.get(routes.test.all);
         console.log(data[0])
-        data ? setTest(data[0].firstName) : setTest('FAILED');
+        data ? setTest(`${data[0].lastName} ${data[0].firstName}`) : setTest('FAILED');
       } catch ({ message }) {
         console.log(message);
         setTest('FAILED');
