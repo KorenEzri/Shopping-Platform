@@ -1,25 +1,28 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
+import { network, routes } from '../../network';
 import { Helmet } from 'react-helmet-async';
-import { NavBar } from 'app/components/NavBar';
-import { Masthead } from './Masthead';
-import { Features } from './Features';
-import { PageWrapper } from 'app/components/PageWrapper';
 
 export function HomePage() {
+  const [test, setTest] = useState('');
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await network.get(routes.test.all);
+        console.log(data[0])
+        data ? setTest(data[0].firstName) : setTest('FAILED');
+      } catch ({ message }) {
+        console.log(message);
+        setTest('FAILED');
+      }
+    })();
+  });
   return (
     <>
       <Helmet>
         <title>Home Page</title>
-        <meta
-          name="description"
-          content="A React Boilerplate application homepage"
-        />
+        <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
-      <NavBar />
-      <PageWrapper>
-        <Masthead />
-        <Features />
-      </PageWrapper>
+      <span>{test}</span>
     </>
   );
 }
