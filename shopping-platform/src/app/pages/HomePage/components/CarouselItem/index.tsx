@@ -24,7 +24,7 @@ export function CarouselItem({ description, image, price }) {
               </p>
             )}
           </StyledDescription>
-          <img src={image} />
+          <img src={image} alt={description} />
           <StyledPriceTag>
             <p>{price}</p>
             <span>Or best offer</span>

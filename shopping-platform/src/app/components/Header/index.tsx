@@ -16,7 +16,7 @@ export function Header() {
               <div id="nav-search">
                 <form id="nav-search-bar-form">
                   <div className="nav-left">
-                    <a href="">ALL</a>
+                    <a href="/">ALL</a>
                   </div>
                   <div className="nav-fill">
                     <input type="text" />
