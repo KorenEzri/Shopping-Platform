@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseURL = 'http://54.92.200.240:8080/api/v1';
+const baseURL = 'http://107.21.87.118:8080/api/v1';
 export const network = axios.create({ baseURL });
 export const routes = {
   test: { test: `${baseURL}/item/test`, all: `${baseURL}/item/all` },
