@@ -1,28 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { network, routes } from '../../network';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { ShoppingGrid } from './components/ShoppingGrid';
 
 export function HomePage() {
-  const [test, setTest] = useState('');
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await network.get(routes.test.all);
-        console.log(data[0])
-        data ? setTest(`${data[0].lastName} ${data[0].firstName}`) : setTest('FAILED');
-      } catch ({ message }) {
-        console.log(message);
-        setTest('FAILED');
-      }
-    })();
-  });
   return (
     <>
       <Helmet>
         <title>Home Page</title>
-        <meta name="description" content="A Boilerplate application homepage" />
+        <meta name="description" content="KoBay homepage" />
       </Helmet>
-      <span>{test}</span>
+      <ShoppingGrid />
     </>
   );
 }
