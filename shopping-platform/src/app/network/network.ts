@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const awsURL = 'http://107.21.87.118:8080/api/v1';
-// const localURL = 'http://localhost/api/v1';
-const baseURL = awsURL;
+const localURL = 'http://localhost/api/v1';
+const baseURL = localURL;
 
 export const network = axios.create({ baseURL });
 export const routes = {

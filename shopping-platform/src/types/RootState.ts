@@ -1,3 +1,4 @@
+import { CartState } from 'app//slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 import { SpinnerShow } from '../app/components/Spinner/slice/types';
 
@@ -7,5 +8,6 @@ import { SpinnerShow } from '../app/components/Spinner/slice/types';
 */
 export interface RootState {
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
+  cart?: CartState;
   spinner_show?: SpinnerShow;
 }

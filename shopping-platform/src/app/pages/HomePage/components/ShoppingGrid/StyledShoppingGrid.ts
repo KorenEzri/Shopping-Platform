@@ -52,7 +52,7 @@ export const StyledBuyNowButton = styled.button`
     top: 1px;
   }
   margin-left: 37px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 `;
 export const StyledPriceTag = styled.div`
   position: relative;
@@ -71,4 +71,54 @@ export const StyledNewListing = styled.span`
   padding: 6px;
   border-radius: 4px;
   background-color: #edeff1;
+`;
+export const StyledAddToCartButton = styled.button`
+  box-shadow: inset 0px 1px 0px 0px #dcecfb;
+  background: linear-gradient(to bottom, #6ba3db 5%, #416b94 100%);
+  background-color: #6ba3db;
+  border: 1px solid #6995c2;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #456d96;
+  &:hover {
+    background: linear-gradient(to bottom, #416b94 5%, #6ba3db 100%);
+    background-color: #416b94;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+  margin-left: 37px;
+  margin-bottom: 12px;
+`;
+export const StyledRemoveFromCartButton = styled.button`
+  box-shadow: inset 0px 1px 0px 0px #cf866c;
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  background-color: #d0451b;
+  border-radius: 3px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #854629;
+  &:hover {
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color: #bc3315;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+  margin-left: 37px;
+  margin-bottom: 12px;
 `;

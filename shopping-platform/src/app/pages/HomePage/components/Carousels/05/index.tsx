@@ -48,6 +48,7 @@ export function CFive({ list }) {
   console.log(list);
   return (
     <div>
+      <h3>{list.title}</h3>
       <Carousel
         additionalTransfrom={0}
         arrows

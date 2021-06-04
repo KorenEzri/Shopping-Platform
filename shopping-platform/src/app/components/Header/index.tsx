@@ -1,7 +1,36 @@
 import React from 'react';
 import { StyledWrapper } from './StyledHeader';
+import { getItemsByQuery } from '../../network';
+import { useHistory } from 'react-router-dom';
 
-export function Header() {
+export function Header({ setters }) {
+  const history = useHistory();
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const { search } = e.target;
+    localStorage.setItem('last_search', search.value);
+    setters.setShowSpinner(true);
+    const res = await getItemsByQuery(search.value);
+    if (!res.descriptions && !res.scraperRes.descriptions[1]) {
+      const retry = await getItemsByQuery(search.value + 'stuff');
+      if (retry !== 'ERROR') {
+        setters.setShowSpinner(false);
+        setters.setSearchItems(res);
+        return;
+      }
+    }
+    if (res !== 'ERROR') {
+      setters.setShowSpinner(false);
+      setters.setSearchItems(res);
+      return;
+    } else {
+      setters.setShowSpinner(false);
+      setters.setError(
+        'Apologies! Our servers are experiencing technical issues.',
+      );
+      return;
+    }
+  };
   return (
     <StyledWrapper>
       <header id="container">
@@ -14,12 +43,12 @@ export function Header() {
             </div>
             <div className="nav-fill">
               <div id="nav-search">
-                <form id="nav-search-bar-form">
+                <form id="nav-search-bar-form" onSubmit={handleSubmit}>
                   <div className="nav-left">
                     <a href="/">ALL</a>
                   </div>
                   <div className="nav-fill">
-                    <input type="text" />
+                    <input type="text" name="search" />
                   </div>
                   <div className="nav-right">
                     <button type="submit">Search</button>
@@ -31,7 +60,16 @@ export function Header() {
               <div id="nav-tools">
                 <a href="/">Language</a>
                 <a href="/">Log in</a>
-                <a href="/">Cart</a>
+                <a
+                  href="/"
+                  onClick={e => {
+                    e.preventDefault();
+                    history.push('/cart')
+                  }}
+                >
+                  Cart
+                </a>
+                )
               </div>
             </div>
           </div>

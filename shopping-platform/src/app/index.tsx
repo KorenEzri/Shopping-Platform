@@ -13,7 +13,6 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 
 import * as Pages from './pages';
-import { Header } from './components/Header';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 
@@ -28,9 +27,9 @@ export function App() {
       >
         <meta name="description" content="A KoBay shopping application" />
       </Helmet>
-      <Header />
       <Switch>
         <Route exact path="/" component={Pages.HomePage} />
+        <Route exact path="/cart" component={Pages.Cart} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

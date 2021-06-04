@@ -1,7 +1,6 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import { CarouselItem } from '../../CarouselItem';
-
 const responsive = {
   desktop: {
     breakpoint: {
@@ -43,21 +42,13 @@ const responsive = {
     partialVisibilityGutter: 30,
   },
 };
-export function COne({ list, lastSearch }) {
+export function CSeven({ list }) {
   if (!list) return null;
-  if (list.scraperRes) {
-    list.descriptions = list.scraperRes.descriptions;
-    list.images = list.scraperRes.images;
-    list.prices = list.scraperRes.prices;
-  }
-  list?.descriptions?.splice(0, 1);
+  list?.descriptions.splice(0, 1);
+  console.log(list);
   return (
     <div>
-      {lastSearch ? (
-        <h3>Your last search: {list.title}</h3>
-      ) : (
-        <h3>{list.title}</h3>
-      )}
+      <h3>{list.title}</h3>
       <Carousel
         additionalTransfrom={0}
         arrows

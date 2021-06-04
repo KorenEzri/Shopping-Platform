@@ -228,3 +228,4 @@ ul li ul li {
   width: 100%;
 }*/
 `;
+export const StyledCartainer = styled.div``;
